@@ -10,6 +10,9 @@
     <title>Récapitulatif des produits</title>
 </head>
 <body>
+    <nav>
+        <a href="index.php">Main</a>
+    </nav>
     <?php if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
         echo "<p>Aucun produit en session...</p>";
     }

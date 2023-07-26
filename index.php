@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +11,25 @@
     <title>Ajout produit</title>
 </head>
 <body>
-    <nav>
-        <a href="recap.php">Récapitulatif</a>
-        </nav>
+    <br>
+    <div class="container">
+        <div class="d-flex align-items-center col-lg-2 p-3 my-2 text-white bg-black rounded">
+            <?php
+                if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
+                    echo "Vous n'avez aucun produit.";
+                }else{
+                    $result = 0;
+                    foreach($_SESSION['products'] as $index => $product){
+                        $result = $result + $product['qtt'];
+                    }
+                    echo "Vous avez ".$result." produits.";
+                }
+            ?>
+        </div>
+    </div>
     <h1 class="row justify-content-md-center">Ajouter un produit</h1>
-    <div class="row row-cols-1 text-center">
-        <form action="traitement.php" method="post">
+    <div class="container text-center">
+        <form action="traitement.php" method="post" class="row row-cols-1">
             <div class="col">
                 <label class="form-label">
                     Nom du produit :
@@ -36,6 +52,18 @@
                 <input type="submit" name="submit" value="Ajouter le produit" class="btn btn-primary">
             </div>
         </form>
+    </div>
+    <br>
+    <nav class="container text-center">
+        <div class="">
+            <a href="recap.php" class="btn btn-secondary">Récapitulatif</a>
+        </div>
+    </nav>
+    <br>
+    <div class="container text-center">
+        <p>
+            <?php echo $_SESSION['message'] ?>
+        </p>
     </div>
 </body>
 </html>

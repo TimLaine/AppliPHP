@@ -17,6 +17,9 @@
             ];
     
             $_SESSION['products'][] = $product;
+            $_SESSION['message'] = "Produit bien ajouté.";
+        } else{
+            $_SESSION['message'] = "Veuillez ajouter un produit valide.";
         }
     }
 

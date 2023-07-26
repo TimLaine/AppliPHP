@@ -23,6 +23,7 @@
         <th scope='col'>Prix</th>
         <th scope='col'>Quantité</th>
         <th scope='col'>Total</th>
+        <th scope='col'></th>
         </tr>
         </thead>
         <tbody>";
@@ -34,12 +35,14 @@
             <td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>
             <td>".$product['qtt']."</td>
             <td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>
+            <td><form action='traitement.php?action=delete' method='get'><input type='submit' name='submit' value='Supprimer' class='btn btn-secondary'></form></td>
             </tr>";
             $totalGeneral += $product['total'];
         }
         echo "  <tr>
         <td colspan=4 scope='row'>Total général : </td>
         <td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>
+        <td></td>
         </tr>
         </tbody>
         </table>";
@@ -47,7 +50,7 @@
     
     ?>
     <nav class="container text-center">
-        <a href="index.php" class="btn btn-secondary">Main</a>
+        <a href="index.php" class="btn col-lg-2 btn-primary">Main</a>
     </nav>
 </body>
 </html>

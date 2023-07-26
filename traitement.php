@@ -22,6 +22,17 @@
             $_SESSION['message'] = "Veuillez ajouter un produit valide.";
         }
     }
-
-
+    if(isset($_GET['action'])){
+        var_dump("test1");
+        echo "test";
+        switch($_GET['action']){
+            case "add":
+            case "delete": var_dump("test2");
+            case "clear":
+            case "up-qtt":
+            case "down-qtt":
+        }
+    }
+    header("Location:recap.php");
     header("Location:index.php");
+

@@ -13,7 +13,7 @@
 <body>
     <br>
     <div class="container">
-        <div class="d-flex align-items-center col-lg-2 p-3 my-2 text-white bg-black rounded">
+        <div class="d-flex align-items-center col-lg-2 p-3 my-1 text-white bg-black rounded">
             <?php
                 if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
                     echo "Vous n'avez aucun produit.";

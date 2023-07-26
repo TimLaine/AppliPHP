@@ -33,9 +33,9 @@
             <td scope='row'>".$index + 1 ."</td>
             <td>".$product['name']."</td>
             <td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>
-            <td>".$product['qtt']."</td>
+            <td><a href='traitement.php?action=down-qtt'> - </a>".$product['qtt']."<a href='traitement.php?action=up-qtt'> + </a></td>
             <td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>
-            <td><form action='traitement.php?action=delete' method='get'><input type='submit' name='submit' value='Supprimer' class='btn btn-secondary'></form></td>
+            <td><a href='traitement.php?action=delete'>Supprimer</a></td>
             </tr>";
             $totalGeneral += $product['total'];
         }
@@ -51,6 +51,7 @@
     ?>
     <nav class="container text-center">
         <a href="index.php" class="btn col-lg-2 btn-primary">Main</a>
-    </nav>
+        <a href="traitement.php?action=clear" class="btn col-lg-2 btn-primary">Tout supprimer</a>
+        </nav>
 </body>
 </html>

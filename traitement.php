@@ -23,16 +23,19 @@
         }
     }
     if(isset($_GET['action'])){
-        var_dump("test1");
-        echo "test";
         switch($_GET['action']){
-            case "add":
-            case "delete": var_dump("test2");
-            case "clear":
-            case "up-qtt":
-            case "down-qtt":
+            case "add": ;
+            break;
+            case "clear": $_SESSION['products'] = [];
+            break;
+            case "delete": var_dump("delete");
+            break;
+            case "up-qtt": var_dump("up-qtt");
+            break;
+            case "down-qtt": var_dump("down-qtt");
+            break;
         }
     }
     header("Location:recap.php");
-    header("Location:index.php");
+    // header("Location:index.php");
 

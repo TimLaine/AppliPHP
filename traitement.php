@@ -23,16 +23,34 @@
         }
     }
     if(isset($_GET['action'])){
+        $id = $_GET['id'];
         switch($_GET['action']){
             case "add": ;
             break;
-            case "clear": $_SESSION['products'] = [];
+            case "clear": unset($_SESSION['products']);
             break;
-            case "delete": var_dump("delete");
+            case "delete": 
+                foreach($_SESSION['products'] as $index => $product){
+                    if($index == $id){
+                        unset($_SESSION['products']["$index"]);
+                    }
+                };
             break;
-            case "up-qtt": var_dump("up-qtt");
+            case "up-qtt": 
+                foreach($_SESSION['products'] as $index => $product){
+                if($index == $id){
+                    $product['qtt']++;
+                    $_SESSION['test'] = "Test up $index";
+                }
+            };
             break;
-            case "down-qtt": var_dump("down-qtt");
+            case "down-qtt": 
+                foreach($_SESSION['products'] as $index => $product){
+                    if($index == $id){
+                        $product['qtt']--;
+                        $_SESSION['test'] = "Test down $index";
+                    };
+                }
             break;
         }
     }

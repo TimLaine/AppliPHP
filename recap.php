@@ -33,9 +33,9 @@
             <td scope='row'>".$index + 1 ."</td>
             <td>".$product['name']."</td>
             <td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>
-            <td><a href='traitement.php?action=down-qtt'> - </a>".$product['qtt']."<a href='traitement.php?action=up-qtt'> + </a></td>
+            <td><a href='traitement.php?action=down-qtt&id=$index'> - </a>".$product['qtt']."<a href='traitement.php?action=up-qtt&id=$index'> + </a></td>
             <td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>
-            <td><a href='traitement.php?action=delete'>Supprimer</a></td>
+            <td><a href='traitement.php?action=delete&id=$index'>Supprimer</a></td>
             </tr>";
             $totalGeneral += $product['total'];
         }
@@ -47,7 +47,7 @@
         </tbody>
         </table>";
     }
-    
+    echo $_SESSION['test'];
     ?>
     <nav class="container text-center">
         <a href="index.php" class="btn col-lg-2 btn-primary">Main</a>

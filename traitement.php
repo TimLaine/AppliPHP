@@ -38,17 +38,23 @@
             break;
             case "up-qtt": 
                 foreach($_SESSION['products'] as $index => $product){
-                if($index == $id){
-                    $product['qtt']++;
-                    $_SESSION['test'] = "Test up $index";
-                }
-            };
-            break;
-            case "down-qtt": 
-                foreach($_SESSION['products'] as $index => $product){
                     if($index == $id){
-                        $product['qtt']--;
-                        $_SESSION['test'] = "Test down $index";
+                        $_SESSION['products'][$id]['qtt']++;
+                        $_SESSION['products'][$id]['total'] = $_SESSION['products'][$id]['price']*$_SESSION['products'][$id]['qtt'];
+                        if($_SESSION['products'][$id]['qtt'] <= 0 ){
+                            unset($_SESSION['products']["$index"]);
+                        }
+                    }
+                };
+                break;
+                case "down-qtt": 
+                    foreach($_SESSION['products'] as $index => $product){
+                        if($index == $id){
+                            $_SESSION['products'][$id]['qtt']--;
+                            $_SESSION['products'][$id]['total'] = $_SESSION['products'][$id]['price']*$_SESSION['products'][$id]['qtt'];
+                            if($_SESSION['products'][$id]['qtt'] <= 0 ){
+                                unset($_SESSION['products']["$index"]);
+                            }
                     };
                 }
             break;

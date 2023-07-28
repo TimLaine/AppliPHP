@@ -47,7 +47,6 @@
         </tbody>
         </table>";
     }
-    echo $_SESSION['test'];
     ?>
     <nav class="container text-center">
         <a href="index.php" class="btn col-lg-2 btn-primary">Main</a>

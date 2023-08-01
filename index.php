@@ -47,13 +47,14 @@
     <br>
     <nav class="container text-center">
         <div class="">
-            <a href="recap.php" class="btn btn-secondary">Récapitulatif</a>
+            <a href="recap.php?page=recap" class="btn btn-secondary">Récapitulatif</a>
         </div>
     </nav>
     <br>
     <div class="container text-center">
         <p>
-            <?php 
+            <?php
+            $_SESSION['page'] = "index";
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
             } else{

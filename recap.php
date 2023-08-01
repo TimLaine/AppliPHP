@@ -41,10 +41,11 @@
     }
     ?>
     <nav class="container text-center">
-        <a href="index.php" class="btn col-lg-2 btn-primary">Main</a>
+        <a href="index.php?page=index" class="btn col-lg-2 btn-primary">Main</a>
         <a href="traitement.php?action=clear" class="btn col-lg-2 btn-primary">Tout supprimer</a>
         </nav>
 <?php
+    $_SESSION['page'] = "recap";
     $content = ob_get_clean();
 
     require_once "template.php";

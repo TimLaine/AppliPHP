@@ -23,7 +23,7 @@
         $totalGeneral = 0;
         foreach($_SESSION['products'] as $index => $product){
             echo "<tr>
-            <td scope='row'>".$index + 1 ."</td>
+            <td scope='row'>".$index+1 ."</td>
             <td>".$product['name']."</td>
             <td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>
             <td><a href='traitement.php?action=down-qtt&id=$index'> - </a>".$product['qtt']."<a href='traitement.php?action=up-qtt&id=$index'> + </a></td>
@@ -38,7 +38,7 @@
                             <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                         </div>
                         <div class='modal-body'>
-                                <img src='./images/".$product['image']."' alt='".$product['image']."'>
+                                <img src='./images/".$product['image']."' alt='".$product['image']."' class='img-fluid'>
                         </div>
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>

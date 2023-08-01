@@ -2,7 +2,7 @@
     session_start();
 
     if(isset($_GET['action'])){
-        $id = $_GET['id'];
+        $id = $_GET['id']; 
         switch($_GET['action']){
             case "add": ;
                 if(isset($_POST['submit'])){
@@ -10,7 +10,7 @@
                     $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                     $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT);
                     $imgTmpName = $_FILES['file']['tmp_name'];
-                    $imgName = $_FILES['file']['name'];
+                    $imgName = rand();
                     move_uploaded_file($imgTmpName, "./images/".$imgName);
                     if($name && $price && $qtt && $imgName){
                         $product = [
@@ -28,7 +28,10 @@
                 }
             header("Location:index.php");
             break;
-            case "clear": unset($_SESSION['products']);
+            case "clear": 
+                unset($_SESSION['products']);
+                header("Location:recap.php");
+
             break;
             case "delete": 
                 foreach($_SESSION['products'] as $index => $product){
@@ -36,8 +39,8 @@
                         unset($_SESSION['products']["$index"]);
                     }
                 };
-            header("Location:recap.php");
-            break;
+                header("Location:recap.php");
+                break;
             case "up-qtt": 
                 foreach($_SESSION['products'] as $index => $product){
                     if($index == $id){
@@ -48,8 +51,8 @@
                         }
                     }
                 };
-            header("Location:recap.php");
-            break;
+                header("Location:recap.php");
+                break;
             case "down-qtt": 
                     foreach($_SESSION['products'] as $index => $product){
                         if($index == $id){
@@ -60,7 +63,7 @@
                             }
                     };
                 }
-            header("Location:recap.php");
-            break;
+                header("Location:recap.php");
+                break;
         }
     }

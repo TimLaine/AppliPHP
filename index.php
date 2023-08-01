@@ -1,16 +1,7 @@
 <?php
     session_start();
+    ob_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <title>Ajout produit</title>
-</head>
-<body>
     <br>
     <div class="container">
         <div class="d-flex align-items-center col-lg-2 p-3 my-1 text-white bg-black rounded">
@@ -62,8 +53,17 @@
     <br>
     <div class="container text-center">
         <p>
-            <?php echo $_SESSION['message'] ?>
+            <?php 
+            if (isset($_SESSION['message'])) {
+                echo $_SESSION['message'];
+            } else{
+                echo "Vous pouvez ajouter vos produits.";
+            }
+            ?>
         </p>
     </div>
-</body>
-</html>
+    <?php
+        $content = ob_get_clean();
+
+        require_once "template.php";
+    ?>

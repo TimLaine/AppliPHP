@@ -20,7 +20,7 @@
     </div>
     <h1 class="row justify-content-md-center">Ajouter un produit</h1>
     <div class="container text-center">
-        <form action="traitement.php" method="post" class="row row-cols-1" enctype="multipart/form-data">
+        <form action="traitement.php?action=add" method="post" class="row row-cols-1" enctype="multipart/form-data">
             <div class="col">
                 <label class="form-label">
                     Nom du produit :
@@ -42,7 +42,6 @@
             <div class="col">
                 <label for="file" class="form-label">Image
                     <input type="file" name="file">
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
                 </label>
             </div>
             <div class="col">
